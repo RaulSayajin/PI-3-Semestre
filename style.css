@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #272626;
+  height: 100vh;
+}
+
+/* Menu lateral */ 
+nav.menu-lateral {
+  width: 65px;
+  height: 100%;
+  background-color: #4e4e52;
+  padding: 20px 0 40px 0; 
+  box-shadow: 3px 0 0 #590A6D;
+  position: fixed;
+  overflow: hidden;
+  transition: .5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+nav.menu-lateral.expandir {
+  width: 300px;
+}
+
+/* Botão expandir */
+.btn-expandir {
+  width: 100%;
+  padding-left: 16px;
+}
+
+.btn-expandir > i {
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Perfil (igual aos itens do menu) */
+.perfil {
+  margin-bottom: 60px;
+}
+
+.perfil a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 13px 0 0 11px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.perfil .icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #590A6D;
+}
+
+.perfil .txt-link {
+  margin-left: 70px;
+  transition: .5s;
+  opacity: 0;
+
+  white-space: nowrap; /* Impede que o texto quebre em duas linhas */
+  overflow: hidden; /* Esconde o excesso, caso passe do limite */
+  text-overflow: ellipsis; /* (opcional) adiciona "..." se o texto for muito longo */
+}
+
+nav.menu-lateral.expandir .perfil .txt-link {
+  margin-left: 20px;
+  opacity: 1;
+}
+
+/* Itens do menu */
+ul {
+  list-style-type: none;
+  flex: 1;
+}
+
+ul li.item-menu {
+  transition: .2s;
+}
+
+ul li.ativo {
+  background-color: #590A6D;
+}
+
+ul li.item-menu:hover {
+  background: #590A6D;
+}
+
+ul li.item-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 15px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; /
+}
+
+ul li.item-menu a .txt-link {
+  margin-left: 70px;
+  transition: .5s;
+  opacity: 0;
+}
+
+nav.menu-lateral.expandir .txt-link {
+  margin-left: 20px;
+  opacity: 1;
+}
+
+ul li.item-menu a .icon > i {
+  font-size: 25px;
+  margin-left: 5px;
+}
+
+/* Botão de sair */
+
+.logout a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 26px;
+  padding: 0 0 0 22px;
+  display: flex;
+  align-items: center;
+}
+
+.logout a .txt-link {
+  margin-left: 70px;
+  opacity: 0;
+  transition: .5s;
+  font-size: 18px;
+}
+
+nav.menu-lateral.expandir .logout a .txt-link {
+  margin-left: 20px;
+  opacity: 1;
+}
