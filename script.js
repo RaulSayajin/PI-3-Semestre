@@ -1,15 +1,35 @@
+// ====== MENU LATERAL ======
 var menuItem = document.querySelectorAll('.item-menu');
 
 function selectlink() {
-  menuItem.forEach((item) =>
-    item.classList.remove('ativo')
-  );
+  menuItem.forEach((item) => item.classList.remove('ativo'));
   this.classList.add('ativo');
 }
 
-menuItem.forEach((item) =>
-  item.addEventListener('click', selectlink)
-);
+menuItem.forEach((item) => item.addEventListener('click', selectlink));
+
+// ====== MANTER O MENU ATIVO NA TROCA DE PÁGINA ======
+const currentPath = window.location.pathname;
+const currentPage = currentPath === '/' ? 'index.html' : currentPath.split('/').pop();
+
+menuItem.forEach((item) => {
+  const link = item.querySelector('a');
+  const href = link.getAttribute('href');
+
+  // ignora links vazios ou âncoras
+  if (!href || href === '#') return;
+
+  // normaliza os caminhos
+  const linkPage = href.split('/').pop();
+
+  // adiciona classe ativo somente se a página atual for a mesma
+  if (linkPage === currentPage) {
+    item.classList.add('ativo');
+  } else {
+    item.classList.remove('ativo');
+  }
+});
+
 
 // expandir menu
 var btnExp = document.querySelector('#btn-exp');
@@ -22,7 +42,7 @@ btnExp.addEventListener('click', function() {
 const carouselElement = document.getElementById("carousel");
 const containerElement = document.querySelector(".carousel-container");
 
-const SCROLL_SPEED = 1.5;   // velocidade de rolagem
+const SCROLL_SPEED = 1.8;   // velocidade de rolagem
 const EDGE_SIZE = 150;      // área de ativação nas bordas
 let scrollDirection = 0;    // -1 = esquerda | 1 = direita | 0 = parado
 let isReturning = false;    // controla se está voltando pro início
@@ -83,3 +103,4 @@ containerElement.addEventListener("mouseleave", () => {
     isReturning = false;
   }, 1000); // 1 segundo é um tempo bom — pode ajustar se quiser
 });
+

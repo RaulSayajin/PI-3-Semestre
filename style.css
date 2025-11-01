@@ -151,11 +151,11 @@ nav.menu-lateral.expandir .logout a .txt-link {
   opacity: 1;
 }
 
-/* ==================== CONTEÚDO PRINCIPAL ==================== */
+/*  CONTEÚDO PRINCIPAL =============================================================================== */
 
 .conteudo {
   margin-left: 65px; /* espaço pro menu lateral */
-  padding: 15px 0 0 4px;
+  padding: 0 0 0 4px;
   transition: margin-left 0.5s;
 }
 
@@ -247,4 +247,106 @@ nav.menu-lateral.expandir ~ .conteudo {
 
 .arrow:hover {
   color: #a855f7;
+}
+
+/* Banner principal --------------------------------------------------------------------------------------*/
+.main-banner {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+}
+
+/* Imagem de fundo dentro do banner */
+.main-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* cobre todo o espaço sem distorcer */
+  object-position: center;  /* centraliza o foco da imagem */
+  display: block;
+}
+
+/* Barra de busca sobre o banner */
+.home-header {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Container da busca */
+.search-container {
+  position: relative;
+  width: 40%;
+}
+
+.search-container i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
+  pointer-events: none;
+}
+
+#search {
+  width: 100%;
+  padding: 10px 20px 10px 40px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+}
+
+/* Overlay e texto sobre o banner */
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #272626);
+  display: flex;
+  align-items: end;
+  padding: 40px;
+}
+
+.banner-content h1 {
+  font-size: 2.3rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.buttons .btn {
+  background-color: #590A6D;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.buttons .btn:hover {
+  background-color: #7a0e8c;
+}
+
+.titulos {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-left: 50px; /* espaço pro menu lateral */
+  padding: 40px 0 0 0;
+  transition: margin-left 0.5s;
+}
+
+.subtitulos {
+  color: #fff;
+  font-size: 0.6rem;
+  font-size: 18px;
+  margin-left: 50px; /* espaço pro menu lateral */
+  padding: 10px 0 0 0;
+  transition: margin-left 0.5s;
 }
