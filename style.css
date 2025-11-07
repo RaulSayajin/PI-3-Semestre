@@ -163,92 +163,6 @@ nav.menu-lateral.expandir ~ .conteudo {
   margin-left: 300px;
 }
 
-/* Carrossel -----------------------------------------------------------------------------------------*/
-.artists-section {
-  padding: 20px 0;
-  box-sizing: border-box;
-}
-
-.artists-section h2 {
-  margin-bottom: 10px;
-  padding: 0 10px 0 20px;
-  color: #fff;
-}
-
-.carousel-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  overflow-y: hidden;
-}
-
-.carousel {
-  display: flex;
-  scrollbar-width: none;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-}
-
-.artist-card {
-  text-align: center;
-  padding: 15px;
-  min-width: 130px;
-  flex-shrink: 0;
-  transition: transform 0.5s;
-  
-}
-
-.artist-card:hover {
-  transform: scale(1.1);
-}
-
-.artist-card a {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-}
-
-.artist-card a:hover img {
-  transform: scale(1.0);
-}
-
-.artist-card img {
-  width: 150px;         
-  height: 150px;        
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.name {
-  font-weight: bold;
-  margin-top: 8px;
-  color: #fff;
-}
-
-.arrow {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  z-index: 10;
-}
-
-.arrow.left {
-  left: 0;
-}
-
-.arrow.right {
-  right: 0;
-}
-
-.arrow:hover {
-  color: #a855f7;
-}
-
 /* Banner principal --------------------------------------------------------------------------------------*/
 .main-banner {
   position: relative;
@@ -328,6 +242,7 @@ nav.menu-lateral.expandir ~ .conteudo {
   cursor: pointer;
   margin-right: 10px;
   transition: 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 .buttons .btn:hover {
@@ -350,3 +265,188 @@ nav.menu-lateral.expandir ~ .conteudo {
   padding: 10px 0 0 0;
   transition: margin-left 0.5s;
 }
+
+/* Carrossel -----------------------------------------------------------------------------------------*/
+
+.carousel-container {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.carousel-container h2 {
+  margin-bottom: 10px;
+  padding: 0 0 0 20px;
+  color: #fff;
+}
+
+.artists-section {
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.artists-section h2 {
+  margin-bottom: 10px;
+  padding: 0 10px 0 20px;
+  color: #fff;
+}
+
+.carousel {
+  display: flex;
+  scrollbar-width: none;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+.artist-card {
+  text-align: center;
+  padding: 15px;
+  min-width: 130px;
+  flex-shrink: 0;
+  transition: transform 0.5s;
+  
+}
+
+.artist-card:hover {
+  transform: scale(1.1);
+}
+
+.artist-card a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.artist-card a:hover img {
+  transform: scale(1.0);
+}
+
+.artist-card img {
+  width: 150px;         
+  height: 150px;        
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-weight: bold;
+  margin-top: 8px;
+  color: #fff;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 0;
+}
+
+.arrow.right {
+  right: 0;
+}
+
+.arrow:hover {
+  color: #a855f7;
+}
+
+
+/* musicas -------------------------------------------------------------------------------------------*/
+
+.mais-ouvidas {
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.mais-ouvidas h2 {
+  margin-bottom: 10px;
+  padding: 0 10px 0 20px;
+  color: #fff;
+}
+
+.music-carousel {
+  background-color: #c7972f;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  
+  scrollbar-width: none;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+
+.music-carousel::-webkit-scrollbar-thumb {
+  background: #6a1b9a;
+  border-radius: 10px;
+}
+
+.music-card {
+  margin: 15px;
+  background-color: #51f35e;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.music-card img {
+  width: 230px;  
+  height: 140px;
+  object-fit: cover;
+  border-radius: 7%;
+  display: block;
+}
+
+.music-card .info {
+  padding: 10px;
+}
+
+.music-card h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.music-card p {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-btn {
+  background-color: #9c27b0;
+  border: none;
+  padding: 6px 12px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.comment-btn:hover {
+  background-color: #ba68c8;
+}
+
+.rating {
+  color: gold;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+

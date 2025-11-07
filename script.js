@@ -39,68 +39,74 @@ btnExp.addEventListener('click', function() {
   menuSide.classList.toggle('expandir');
 });
 
-const carouselElement = document.getElementById("carousel");
-const containerElement = document.querySelector(".carousel-container");
+// ==================== Carrosel =======================
 
-const SCROLL_SPEED = 1.8;   // velocidade de rolagem
-const EDGE_SIZE = 150;      // área de ativação nas bordas
-let scrollDirection = 0;    // -1 = esquerda | 1 = direita | 0 = parado
-let isReturning = false;    // controla se está voltando pro início
+// ============================
+// Função genérica de carrossel
+// ============================
+function iniciarCarrossel(carouselId, containerSelector) {
+  const carouselElement = document.getElementById(carouselId);
+  const containerElement = document.querySelector(containerSelector);
 
-// Função de animação suave
-function animateScroll() {
-  const maxScrollLeft = carouselElement.scrollWidth - carouselElement.clientWidth;
+  const SCROLL_SPEED = 1.8;   // velocidade de rolagem
+  const EDGE_SIZE = 150;      // área de ativação nas bordas
+  let scrollDirection = 0;    // -1 = esquerda | 1 = direita | 0 = parado
+  let isReturning = false;    // controla se está voltando pro início
 
-  // Só faz rolagem normal se NÃO estiver voltando pro início
-  if (!isReturning) {
-    if (scrollDirection === 1) {
-      // Vai pra direita até o final
-      if (carouselElement.scrollLeft < maxScrollLeft) {
+  // Função de animação suave
+  function animateScroll() {
+    const maxScrollLeft = carouselElement.scrollWidth - carouselElement.clientWidth;
+
+    if (!isReturning) {
+      if (scrollDirection === 1 && carouselElement.scrollLeft < maxScrollLeft) {
         carouselElement.scrollLeft += SCROLL_SPEED;
-      }
-    } else if (scrollDirection === -1) {
-      // Vai pra esquerda até o início
-      if (carouselElement.scrollLeft > 0) {
+      } else if (scrollDirection === -1 && carouselElement.scrollLeft > 0) {
         carouselElement.scrollLeft -= SCROLL_SPEED;
       }
     }
+
+    requestAnimationFrame(animateScroll);
   }
 
-  // Continua o loop de animação
+  // Inicia o loop de animação
   requestAnimationFrame(animateScroll);
+
+  // Detecta movimento do mouse dentro do container
+  containerElement.addEventListener("mousemove", (e) => {
+    if (isReturning) return;
+    const containerRect = containerElement.getBoundingClientRect();
+    const mouseX = e.clientX - containerRect.left;
+
+    if (mouseX < EDGE_SIZE) {
+      scrollDirection = -1;
+    } else if (mouseX > containerRect.width - EDGE_SIZE) {
+      scrollDirection = 1;
+    } else {
+      scrollDirection = 0;
+    }
+  });
+
+  // Quando o mouse sair do container → volta para o início
+  containerElement.addEventListener("mouseleave", () => {
+    scrollDirection = 0;
+    isReturning = true;
+
+    carouselElement.style.scrollBehavior = "smooth";
+    carouselElement.scrollLeft = 0;
+
+    setTimeout(() => {
+      carouselElement.style.scrollBehavior = "auto";
+      isReturning = false;
+    }, 1000);
+  });
 }
 
-// Inicia o loop contínuo
-requestAnimationFrame(animateScroll);
+// ============================
+// Inicialização dos carrosséis
+// ============================
 
-// Detecta movimento do mouse dentro do container
-containerElement.addEventListener("mousemove", (e) => {
-  if (isReturning) return; // se estiver voltando, ignora
-  const containerRect = containerElement.getBoundingClientRect();
-  const mouseX = e.clientX - containerRect.left;
+// 1️⃣ Carrossel de artistas (exemplo)
+iniciarCarrossel("carousel", ".carousel-container");
 
-  if (mouseX < EDGE_SIZE) {
-    scrollDirection = -1;
-  } else if (mouseX > containerRect.width - EDGE_SIZE) {
-    scrollDirection = 1;
-  } else {
-    scrollDirection = 0;
-  }
-});
-
-// Quando o mouse sair do container → volta para o início
-containerElement.addEventListener("mouseleave", () => {
-  scrollDirection = 0;
-  isReturning = true;
-
-  // Define rolagem suave de volta ao começo
-  carouselElement.style.scrollBehavior = "smooth";
-  carouselElement.scrollLeft = 0;
-
-  // Espera a rolagem acabar (tempo depende do tamanho do carrossel)
-  setTimeout(() => {
-    carouselElement.style.scrollBehavior = "auto";
-    isReturning = false;
-  }, 1000); // 1 segundo é um tempo bom — pode ajustar se quiser
-});
-
+// 2️⃣ Carrossel de músicas ("Mais ouvidas por você")
+iniciarCarrossel("musicas-carousel", "#musicas-container");
