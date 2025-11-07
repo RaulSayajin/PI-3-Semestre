@@ -450,3 +450,65 @@ nav.menu-lateral.expandir ~ .conteudo {
 }
 
 
+
+/* Perfil Configurações */
+
+.card-perfil {
+  background-color: #212121;
+  border-radius: 12px;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1200px;
+  margin-top: 20px;
+  margin: 40px auto;
+  height: 220px; 
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.foto-perfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dados h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dados p {
+  margin: 4px 0 0;
+  color: #b0b0b0;
+  font-size: 14px;
+}
+
+.dados h2{
+  color: #f0f0f0;
+}
+
+.btn-spotify {
+  background-color: #590A6D;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-spotify:hover {
+  background-color: #590A6D;
+}
