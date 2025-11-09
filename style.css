@@ -361,7 +361,7 @@ nav.menu-lateral.expandir ~ .conteudo {
 }
 
 
-/* musicas -------------------------------------------------------------------------------------------*/
+/* musicas mais ouvidas -------------------------------------------------------------------------------------------*/
 
 .mais-ouvidas {
   padding: 20px 0;
@@ -393,7 +393,7 @@ nav.menu-lateral.expandir ~ .conteudo {
 
 .music-card {
   margin: 15px;
-  background-color: #51f35e;
+  background-color: #4e4e52;
   border-radius: 10px;
   padding: 7px;
 }
@@ -413,10 +413,11 @@ nav.menu-lateral.expandir ~ .conteudo {
 .music-card h3 {
   font-size: 1rem;
   margin-bottom: 5px;
+  color: #fff;
 }
 
 .music-card p {
-  color: #aaa;
+  color: #ffffff;
   font-size: 0.9rem;
   margin-bottom: 10px;
 }
@@ -449,11 +450,9 @@ nav.menu-lateral.expandir ~ .conteudo {
   gap: 5px;
 }
 
+/* Perfil Configurações ----------------------------------------------------------------------------------*/
 
-
-/* Perfil Configurações */
-
-.card-perfil {
+.container-perfil {
   background-color: #212121;
   border-radius: 12px;
   padding: 20px 30px;
@@ -466,7 +465,7 @@ nav.menu-lateral.expandir ~ .conteudo {
   height: 220px; 
 }
 
-.info {
+.container-perfil info {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -484,7 +483,7 @@ nav.menu-lateral.expandir ~ .conteudo {
   font-size: 18px;
 }
 
-.btn-container {
+.btn-sair {
   display: flex;
   justify-content: flex-end;
 }
